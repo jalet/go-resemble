@@ -1,1 +1,4 @@
 go-resemble
+screenshots/
+failures/
+node_modules/

@@ -1,0 +1,23 @@
+{
+  "name": "spl-resemble",
+  "version": "0.0.0",
+  "description": "Regression test Public Web",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "resemblejs": "~1.0.1",
+    "casperjs": "~1.1.0-beta3",
+    "phantomjs": "~1.9.7-3",
+    "phantomcss": "~0.5.0",
+    "webshot": "~0.12.0",
+    "promise": "~4.0.0"
+  },
+  "dependencies": {
+    "pngjs": "~0.4.0",
+    "png-js": "~0.1.1"
+  }
+}

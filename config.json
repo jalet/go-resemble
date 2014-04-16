@@ -1,14 +1,14 @@
 {
     "sites": [
         {
-            "url": "http://www.example.se"
+            "url": "http://www.aftonbladet.se/"
         },
         {
-            "url": "http://www.example.com"
+            "url": "http://www.sportbladet.se/"
         }
     ],
     "selectors": [
-        "body",
-        ".bar"
+        ".abSiteNav",
+        ".abEqualRow.abBottomRow"
     ]
 }
