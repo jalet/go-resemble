@@ -1,0 +1,14 @@
+{
+    "sites": [
+        {
+            "url": "http://www.example.se"
+        },
+        {
+            "url": "http://www.example.com"
+        }
+    ],
+    "selectors": [
+        "body",
+        ".bar"
+    ]
+}
