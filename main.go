@@ -28,10 +28,10 @@ func main() {
 	numSelectors := len(config.Selectors)
 
 	var wg sync.WaitGroup
-	wg.Add(numSites * numSelectors)
 
 	for i := 0; i < numSites; i++ {
 		for j := 0; j < numSelectors; j++ {
+			wg.Add(1)
 			go process(&wg, config.Sites[i], config.Selectors[j])
 		}
 	}
@@ -41,15 +41,17 @@ func main() {
 }
 
 func install() {
+	fmt.Println("-- Install node packages")
 	cmd := exec.Command("npm", "install")
 	err := cmd.Run()
 
 	if err != nil {
-		panic(err)
+		panic("Could not install node packages")
 	}
 }
 
 func setup() {
+	fmt.Println("-- Cleanup (Screenshots and failures)")
 	cmd1 := exec.Command("rm", "-rf", "screenshots")
 	cmd1.Stdin = strings.NewReader("y")
 	cmd1.Run()
@@ -60,7 +62,7 @@ func setup() {
 
 	configFile, err := os.Open("config.json")
 	if err != nil {
-		panic(err)
+		panic("Could not open config.json")
 	}
 
 	jsonParser := json.NewDecoder(configFile)
@@ -80,6 +82,10 @@ func process(wg *sync.WaitGroup, site WebSite, selector string) {
 }
 
 func resemble() {
-	fmt.Println("Resemble")
-	exec.Command("node_modules/casperjs/bin/casperjs", "test", "lib/b.js").Run()
+	fmt.Println("-- Resemble")
+	out, err := exec.Command("node_modules/casperjs/bin/casperjs", "test", "lib/b.js").Output()
+
+	if err != nil {}
+
+	fmt.Printf("%s\n", out)
 }
